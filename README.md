@@ -1,3 +1,3 @@
 # Journal App
+![imagen](https://github.com/jhoset/journalapp/assets/29497145/bb11b813-3e45-4d25-abf4-386541dbd050)
 
-![imagen](https://github.com/jhoset/journalapp/assets/29497145/1e909e5f-a205-4ee9-865d-e05ff2db46a9)
