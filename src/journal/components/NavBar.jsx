@@ -1,10 +1,15 @@
 import { LogoutOutlined, MenuOutlined } from "@mui/icons-material"
 import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material"
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { startLogout } from "../../store/auth/thunks";
 
 export const NavBar = ({ drawerWidth = 240 }) => {
 
-
+    const dispatch = useDispatch();
+    const onLogout = () => {
+        dispatch(startLogout({}))
+    }
     return (
         <AppBar position="fixed"
             sx={{
@@ -17,7 +22,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
                 </IconButton>
                 <Grid container direction="row" justifyContent="space-between" alignItems="center">
                     <Typography variant="h6" noWrap component='div'> Journal App </Typography>
-                    <IconButton color="secondary"> <LogoutOutlined /> </IconButton>
+                    <IconButton onClick={onLogout} color="secondary"> <LogoutOutlined /> </IconButton>
                 </Grid>
             </Toolbar>
         </AppBar>

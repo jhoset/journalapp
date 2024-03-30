@@ -1,8 +1,12 @@
 
-import { TurnedInNot } from "@mui/icons-material";
-import { Box, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
+import { Box, Divider, Drawer, List, Toolbar, Typography } from "@mui/material";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
+import { SideBarItem } from "./SideBarItem";
 export const SideBar = ({ drawerWidth = 240 }) => {
+
+    const { displayName } = useSelector(state => state.auth);
+    const { notes } = useSelector(state => state.journal);
 
     return (
         <Box component='nav'
@@ -15,24 +19,12 @@ export const SideBar = ({ drawerWidth = 240 }) => {
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
                 }} >
                 <Toolbar>
-                    <Typography variant="h6" noWrap>Jhoset NG</Typography>
+                    <Typography variant="h6" noWrap>{displayName}</Typography>
                 </Toolbar>
                 <Divider />
                 <List>
                     {
-                        ['January', 'February', 'March', 'April', 'May', 'June'].map(item => (
-                            <ListItem key={item} disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <TurnedInNot />
-                                    </ListItemIcon>
-                                    <Grid container direction="column">
-                                        <ListItemText primary={item} />
-                                        <ListItemText secondary={'Text Example'} />
-                                    </Grid>
-                                </ListItemButton>
-                            </ListItem>
-                        ))
+                        notes && notes.map((note) => (<SideBarItem key={note.id} {...note} />))
                     }
                 </List>
             </Drawer>

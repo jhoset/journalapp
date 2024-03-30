@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 export const AuthLayout = ({ children, title }) => {
     return (
         <Grid container
+            
             spacing={0}
             direction="row"
             alignItems="center"
@@ -13,7 +14,7 @@ export const AuthLayout = ({ children, title }) => {
                 className="box-shadow"
                 sx={{ backgroundColor: 'white', padding: 3, borderRadius: 2 }}>
                 <Typography variant="h5" sx={{ mb: 2, textAlign: "center", fontWeight: 500, color: "primary.main" }} >
-                    { title }
+                    {title}
                 </Typography>
                 {/* CHILDREN */}
                 {
