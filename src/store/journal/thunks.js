@@ -21,8 +21,8 @@ export const startNewNote = () => {
             `${uid}/journal/notes`));
 
         const resp = await setDoc(newDoc, newNote)
-
-        console.log({ newDoc, resp });
+        newNote.id = newDoc.id;
+        // console.log({ newDoc, resp });
 
         // dispatch
         dispatch(addNewEmptyNote(newNote));

@@ -14,7 +14,7 @@ export const checkingAuth = (email, password) => {
     return async (dispatch) => {
 
         dispatch(checkCredentials());
-        console.log('Checking credentials...', { email, password });
+        // console.log('Checking credentials...', { email, password });
 
     }
 }
@@ -46,7 +46,7 @@ export const startEmailAndPasswordSignIn = ({ email, password }) => {
         dispatch(checkCredentials());
         const { ok, uid, photoURL, displayName, errorMessage } = await signInWithEmailPassword(email, password);
         if (!ok) return dispatch(logout({ errorMessage }));
-        dispatch(login({ uid, displayName, email, photoURL }));
+        dispatch(login({ ok, uid, displayName, email, photoURL }));
     }
 }
 

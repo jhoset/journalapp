@@ -2,7 +2,8 @@
 
 export const fileUpload = async (file) => {
 
-    if (!file) throw new Error(`No file found to upload`);
+    // if (!file) throw new Error(`No file found to upload`);
+    if (!file) return null;
 
     const cloudUrl = `https://api.cloudinary.com/v1_1/drufubdsp/upload`;
 
@@ -24,8 +25,9 @@ export const fileUpload = async (file) => {
         return cloudResp.secure_url;
 
     } catch (error) {
-        console.error(error);
-        throw new Error(error.message);
+        // console.error(error);
+        // throw new Error(error.message);
+        return null;
     }
 
 }

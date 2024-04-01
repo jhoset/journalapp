@@ -1,5 +1,10 @@
-import { Google } from "@mui/icons-material"
-import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"
+import Google  from '@mui/icons-material/Google';
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import { Link as RouterLink } from "react-router-dom"
 import { AuthLayout } from "../layout/AuthLayout"
 import { useForm } from "../../hooks"
@@ -41,13 +46,13 @@ export const LoginPage = () => {
 
     return (
         <AuthLayout title="Login">
-            <form className="animate__animated animate__fadeIn animate__faster" onSubmit={onEmailPasswordSignIn}>
+            <form aria-label='submit-form' className="animate__animated animate__fadeIn animate__faster" onSubmit={onEmailPasswordSignIn}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <TextField value={email} onChange={onInputChange} name="email" label="Email" type="email" placeholder="example@gmail.com" fullWidth />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField value={password} onChange={onInputChange} name="password" label="Password" type="password" placeholder="*********" fullWidth />
+                        <TextField  inputProps={{ 'data-testid': 'password' }} value={password} onChange={onInputChange} name="password" label="Password" type="password" placeholder="*********" fullWidth />
                     </Grid>
                     <Grid item xs={12}>
                         {
@@ -65,7 +70,7 @@ export const LoginPage = () => {
                                 </Button>
                             </Grid>
                             <Grid item xs={12} sm={6}>
-                                <Button disabled={isAuthenticating} onClick={onGoogleSignIn} variant="outlined" fullWidth>
+                                <Button aria-label='google-btn' disabled={isAuthenticating} onClick={onGoogleSignIn} variant="outlined" fullWidth>
                                     <Google />
                                     <Typography sx={{ ml: 1 }}> Google </Typography>
                                 </Button>
